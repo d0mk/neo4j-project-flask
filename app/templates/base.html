@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Baza filmowa</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/styles/base.css">
+</head>
+<body class="container shadow-lg">
+    <header class="container p-4 bg-primary rounded-top text-center">
+        <h1><a class="text-white page-title" href="{{ url_for('home') }}">Baza filmowa</a></h1>
+    </header>
+
+    <section class="w-100 text-center bg-light p-2">
+        <div class="dropdown display-inline">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Wybierz akcję
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {% for item in get_menu_items() %}
+                    <button class="dropdown-item" type="button" id="button_{{ loop.index }}">{{ item }}</button>
+                {% endfor %}
+            </div>
+        </div>
+
+        <button class="btn btn-success" type="submit" id="button_execute" form="data_form">Wykonaj</button>
+    </section>
+    
+    <main class="container bg-light h-auto pl-2 pr-2 pd-2">
+        <div class="container text-center mb-2">
+            <form id="data_form" action="{{ url_for('result') }}" method="post">
+
+            </form>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="container text-danger bg-warning p-3 rounded-lg mx-auto w-50">
+                <h5>Napotkano następujące błędy:</h5>
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="bg-primary rounded-bottom">
+        <h6 class="text-white w-100 text-center p-3">Wykonanie: Dominik Kobyra</h4>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="../static/scripts/script.js"></script>
+</body>
+</html>

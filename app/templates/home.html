@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="jumbotron m-3 p-4">
+        <h4 class="mb-4">Informacje ogólne</h4>
+        <p>Strona pełni funkcję interfejsu pomiędzy użytkownikiem i bazą danych Neo4j.</p>
+        <p>W celu uzyskania informacji o określonych węzłach, proszę wybrać rodzaj akcji w menu powyżej, a następnie wykonać ją umieszczonym obok przyciskiem.</p>
+        <p>Niektóre akcje wymagają do działania parametrów wejściowych wprowadzanych przez użytkownika. W przypadku, gdy określonego parametru (np. tytułu filmu czy nazwiska aktora) nie znaleziono w bazie, użytkownik jest o tym informowany wyskakującym komunikatem.</p>
+    </div>
+
+    <div class="jumbotron m-3 p-4">
+        <h4 class="mb-3">Opis dostępnych akcji</h4>
+        <div class="container pl-4">
+            <li><span class="font-weight-bold pl-2">Aktorzy z filmu</span> - zwraca listę aktorów występujących w podanym filmie</li>
+            <li><span class="font-weight-bold pl-2">Czas trwania</span> - zwraca listę filmów z minimalnym czasem trwania podanym jako argument</li>
+            <li><span class="font-weight-bold pl-2">Filmy danego reżysera</span> - zwraca listę filmów wyreżyserowanych przez daną osobę</li>
+            <li><span class="font-weight-bold pl-2">Filmy z aktorem</span> - zwraca listę filmów, w których występuje podany aktor</li>
+            <li><span class="font-weight-bold pl-2">Filmy z aktorem w gatunku</span> - zwraca listę filmów z danym aktorem należących do danego gatunku</li>
+            <li><span class="font-weight-bold pl-2">Gatunek</span> - zwraca listę filmów z podanego gatunku</li>
+            <li><span class="font-weight-bold pl-2">Rating</span> - zwraca listę filmów z minimalną oceną (w serwisie IMDb) podaną jako argument</li>
+            <li><span class="font-weight-bold pl-2">Rok produkcji</span> - zwraca listę filmów wyprodukowanych od podanego roku</li>
+            <li><span class="font-weight-bold pl-2">Wszyscy aktorzy</span> - zwraca listę wszystkich aktorów w bazie</li>
+            <li><span class="font-weight-bold pl-2">Wszyscy reżyserzy</span> - zwraca listę wszystkich reżyserów w bazie</li>
+            <li><span class="font-weight-bold pl-2">Wszystkie filmy</span> - zwraca listę wszystkich filmów w bazie</li>
+            <li><span class="font-weight-bold pl-2">Wszystkie gatunki</span> - zwraca listę wszystkich gatunków filmowych w bazie</li>
+            <li><span class="font-weight-bold pl-2">Wszystkie wytwórnie filmowe</span> - zwraca listę wszystkich wytwórni filmowych w bazie</li>
+        </div>
+    </div>
+{% endblock %}

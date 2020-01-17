@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table class="table table-hover w-100 text-center">
+        <thead class="thead-dark">
+            <tr>
+                {% for column in data[0][0].keys() %}
+                    <th scope="col">{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in data %}
+                <tr>
+                    {% for value in d[0].values() %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
