@@ -1,1 +1,1 @@
-web gunicorn "flask-app:main()"
+web gunicorn flask-app:app
