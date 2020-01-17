@@ -1,5 +1,10 @@
 from app import app, connector
 
-if __name__ == '__main__':
+
+def main():
     app.run()
     connector.cleanup()
+
+
+if __name__ == '__main__':
+    main()
